@@ -1,0 +1,26 @@
+
+body {
+    background-color: rgb(39, 129, 180);
+}
+
+.title_page {
+    background-color: rgb(78, 77, 77);
+    color: white;
+    margin: 5px 5px 5px 5px;
+    border-radius: 15px;
+    padding: 10px 10px 10px 10px;
+
+}
+
+.title_page .heading {
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.title_page .name {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: right;
+}
+
