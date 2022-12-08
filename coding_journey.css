@@ -1,26 +1,48 @@
 
 body {
-    background-color: rgb(39, 129, 180);
+    background-color: rgb(59, 173, 240);
 }
 
 .title_page {
     background-color: rgb(78, 77, 77);
-    color: white;
-    margin: 5px 5px 5px 5px;
+    color: rgb(179, 171, 171);
+    margin: -5px -5px 5px -5px;
     border-radius: 15px;
     padding: 10px 10px 10px 10px;
-
+    
 }
 
 .title_page .heading {
     font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    font-weight: 200;
 }
 
 .title_page .name {
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     text-align: right;
+    font-weight: 200;
 }
+
+.page .language {
+    float: left;
+    width: 19%;
+    background-color: rgb(43, 41, 41);
+    font-size: 40px;
+}
+
+.page .info{
+    background-color: rgb(138, 135, 135);
+    color: rgb(236, 232, 232);
+    margin: 0px -5px 5px 0px;
+    border-radius: 15px;
+    padding: 10px 10px 10px 10px;
+    float: right;
+    width: 78%;
+    text-align: left;
+}
+
+
 
