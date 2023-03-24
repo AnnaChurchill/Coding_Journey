@@ -1,0 +1,171 @@
+Javascript
+
+<script src="script.js">
+
+Console
+console.log("..."); to log messages
+text must be enclosed in single or double quotation marks
+
+write to browser: (for testing only)
+document.write("..."); e.g. document.write("<b><h1>Hello!</h1></b>");
+
+Variables:
+Declare variable by using 'var':
+var x = 10;
+
+alert("...") is used to create a message box
+
+javascript has similar symbols to c: comment symbols, \n, \t, etc.
+also has +=, -=. *=, /= and %= (similar to python)
+booleans are true and false
+also has === (identical: equal and of same type), !== (not identical)
+
+
+maths:
+you can evaluate a string equation using eval: eval("12+1");
+'10'*5 and '10'*'5' will give the same result as 10*5
+
+assign value to a variable based on a condition:
+variable = (condition) ? value1: value2;      e.g. var isAdult = (age < 18) ? "Too young": "Old enough";
+
+
+strings:
+can concatinate strings using +
+
+
+javascript has switch statement: e.g.
+var day = 2;
+switch (day) {
+    case 1:
+        document.write("Monday");
+        break;
+    case 2:
+        document.write("Tuesday");
+        break;
+    case 3:
+        document.write("Wednesday");
+        break;
+    default:
+        document.write("Another day");
+}
+
+a function:
+function name() {...}
+
+
+
+popup boxes: (alert, prompt and confirm)
+alert(".."); for ensuring information gets through to user. Has an "OK" button that user must click to proceed. Takes single parameter which is the text displayed.
+prompt("..", "..."); asking user for information. Has to buttons: "OK" and "Cancel". Returns input entered by user. two parameters: first is text displayed, second is default string displayed in text box (optional)
+confirm(".."); have to user verify or accept something. Has buttons "OK" and "Cancel". Returns true or false. one parameter for text displayed.
+
+
+objects: e.g.
+var person = {
+name: "John",
+age: 31,
+favColour: "green",
+height: 183 };
+you can access properties by either person.name or person['name']
+length() can be used to find the number of properties
+
+object method (function definition): objectName.methodName()
+
+object constructor function: e.g.
+	function person(name, age, color) {
+		this.name = name;
+		this.age = age;
+		this.favColor = color;
+	}
+var p1 = new person("John",42,"green");
+var p2 = new person("Sandy",30,"pink");
+
+methods are functions stored as objects: e.g.
+methodName = function() { code lines }
+can define it inside constructor function using this.methodName
+can also define it outside the constructor function:
+	function person(name, age) {
+	this.yearOfBirth = bornYear;
+	}
+	function bornYear() { return 2023 - this.age; }
+
+Arrays: e.g.
+	var courses = new Array("HTML", "CSS", "JS");    or    var courses = ["HTML", "CSS", "JS"];
+	var course = courses[0] //HTML
+	courses[1] = "C++"; //changes second element;
+trying to access an index outside of the array returns "undefined".
+Can also define arrays of certain length e.g.
+	var courses = new Array(3);
+Arrays are dynamic so you don't have to specify length e.g.
+	var courses = new Array();
+	courses[0] = "HTML";
+	... etc.
+Arrays have properties:
+courses.length
+courses.concat(morecourses) //concatinate
+
+Math object:
+has properties (e.g. Math.PI) and methods (e.g. Math.abs(x), Math.asin(x), Math.ceil(x), also floor, log, max(x,z,y,f), pow etc.)
+
+Date object:
+setInterval(myAlert, 3000)   //will call the myAlert function at intervals of 3 seconds (3000ms)
+setInterval continues until clearInterval() is called
+var d = new Date();  creates Date object with current date and time. A date consists of a year, a month, a day, an hour, a minute, a second, and milliseconds.
+	can also input a date as Date(milliseconds (from 1st Jan 1970)), Date(dateString), Date(year, month, day, hours, mins, seconds, milliseconds)
+Date methods: getFullYear (gets year), getMonth (gets month), getDate (gets day of month), getDay (gets day of week), getHours ... etc.
+
+
+
+
+DOM (document object model)
+e.g. DOM of HTML document:
+
+	document
+	    |
+  ________<html>__________
+  |                       |
+<head>           _______<body>_______
+  |             |                   |
+<title>       <h1>                 <a>
+
+
+html elements become nodes in a tree. There are child nodes and nodes on same level are called sibling nodes.
+"document" is a predefined object in javascript. e.g. document.body.innerHTML = "Some text"; (innerHTML can be used to change content of an HTML element)
+
+some methods of document:
+document.getElementById(id)
+document.getElementsByClassName(name) // gives an array
+document.getElementsByTagName(name) // gives array of elements with tage name (eg. "p")
+
+some methods of elements:
+element.childNodes
+element.firstChild
+element.lastChild
+element.hasChildNodes  // returns true or false
+element.nextSibling
+element.previousSibling
+element.parentNode
+
+changing elements:
+element.innerHTML // changes content
+can change attributes (src, href, etc.). e.g. element.src = "...";
+can change style: e.g.
+	x.style.color = "red";
+	x.style.width = "100px";
+(all CSS properties can be modified with JavaScript but must change the hyphenated property names to camelCase: e.g. background-color to backgroundColor)
+
+
+creating elements: the following can be used to create elements:
+element.cloneNode()
+document.createElement(element)
+document.createTextNode(text)
+for new node to aappear in document you must append it to an existing document:
+element.appendChild(newNode)
+element.insertBefore(node1, node2) //inserts node1 as a child before node2
+to remove an element you must select the parent of the element and use removeChild(node);
+to replace element: element.replaceChild(newNode,oldNode);
+
+
+
+
+

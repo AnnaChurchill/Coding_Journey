@@ -1,0 +1,67 @@
+<p> ... </p>      paragraphs    [attr. align="right"or"center"]
+<img src=...>     image         [attr. height/width = "..px"or"..%, border="..px"]
+<h1> ... </h1>    heading can use h1-h6 (h1 largest)
+<hr>  or  <hr />  horizontal line [attr. width="50px"or"50%", align]
+<!-- .... -->     comment
+<br />            newline
+<a href="..."> ... </a>  hyperlink  [attr. target="_blank" (open in new tab)]
+<font> ... </font>   change a bit of text [attr. color
+
+
+html page has the following format:
+<html>
+<head>
+ <title> ... </title>
+</head>
+<body>       [attr. bgcolor="#0000FF" (hex value)]
+</body>
+</html>
+where the body contains all the visual elements
+
+text formatting:
+<b> ... </b>          bold
+<big> ... </big>      big
+<i> ... </i>          italic
+<small> ... </small>  small
+<strong> ... </strong> strong (appears as bold)
+<em> ... </em>         emphasis (appears as italics)
+<sub> ... </sub>       subsript
+<sup> ... </sup>       superscript
+<ins> ... </ins>       inserted text (underlined)
+<del> ... </del>       deleted text (crossed out)
+
+ordered list: (unordered list is same but with <ul> instead of <ol>
+<ol>
+ <li>...</li>
+ <li>...</li>
+ <li>...</li>
+</ol>
+
+table: (eg. 2rows 3cols. tr-row, td-clumns(data), th-table headers)
+<table>           [attr. border, align]
+ <tr>
+  <th>...</th>    [attr. bgcolor="red"]
+  <th>...</th>
+  <th>...</th>
+ </tr>
+ <tr>
+  <td>...</td>   [attr. colspan="2"]
+  <td>...</td>
+ </tr>
+</table>
+
+formatting for multiple things:
+<div style="background-color:green; color:white; padding:20px;">
+ .....
+ .....
+</div
+
+
+collect information from user:
+<form> ... </form>
+atrr.:
+  <form action="url" method="..."> for method use GET or POST. When you use GET, the form data will be visible in the page address.
+
+  <form>
+	<input type="..." name="..."/><br/>      type can be: "text", "password", "radio"(mult.choice where you can only do one), "checkbox", "submit", "email"
+	<textarea name="..."></textarea>       (for multiple lines of text)

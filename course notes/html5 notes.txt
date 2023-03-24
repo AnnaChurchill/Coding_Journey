@@ -1,0 +1,101 @@
+HTML5
+
+doc type declaration:
+<!DOCTYPE  HTML>
+
+<header> ... </header>  header of document
+<footer> ... </footer> footer of document
+<nav> ... </nav>       navigation - links to sections of the page
+<article> ... </article>  independent piece of content
+<section> ... </section>  logical container of page or article
+<aside> ... </aside>   secondary content often in a side bar
+<progress min="0" max="100" value="45"> </progress>   shows a progress bar
+
+Audio:      Text between <audio> and </audio> will display in browsers that do not support the <audio> element. 
+controls    - specify that audio controls should be displayed. 
+autoplay    - specify audio to play when ready.
+<audio src="..." controls autoplay> .... </audio> 		Can also be written:
+<audio controls> <source src="..." type="audio/mpeg"> </audio>     
+
+Video
+<video controls> <source src="..." type="video/mpeg"> ... </video>
+
+
+Storing inputs:
+localStorage.setItem("key1", "value1");
+//this will print the value:
+alert(localStorage.getItem("key1"));
+localStorage.removeItem("key1");
+localStorage.clear();
+
+Geolocation:
+navigator.geolocation.getCurrentPosition();
+
+Drag and Drop:
+<img draggable="true" />
+
+Images and shapes: (SVG)
+<img src="..." alt=" height="300" />
+CIRCLE: (cx and cy are coodinates of centre begining at top left corner, r is radius)
+<svg width="2000" height="2000">
+   <circle cx="80" cy="80" r="50" fill="green" />
+</svg>
+RECTANGLE: (
+<svg width="2000" height="2000">
+   <rect width="300" height="100" 
+     x="20" y="20" fill="green" />
+</svg>
+LINE: ( (x1,y1) and (x2,y2) are the two ends of the line)
+<svg width="400" height="410">
+    <line x1="10" y1="10" x2="200" y2="100" 
+        style="stroke:#000000; stroke-linecap:round; 
+        stroke-width:20"  />
+</svg>
+POLYLINE (lines that have corners. Points are defined in "points")
+<svg width="2000" height="500">
+    <polyline style="stroke-linejoin:miter; stroke:black; 
+        stroke-width:12; fill: none;"
+        points="100 100, 150 150, 200 100" />
+</svg>
+ELLIPSE:
+<svg height="500" width="1000">
+   <ellipse cx="200" cy="100" rx="150" ry="70" style="fill:green" />
+</svg>
+POLYGON:
+<svg width="2000" height="2000">
+<polygon points="100 100, 200 200, 300 0" 
+      style="fill: green; stroke:black;" />
+</svg>
+
+
+Shape animations: (SVG)
+
+MOVE IN LINE: (fill = "freeze" means shape stays in the after position, fill="remove" means the shape finishes in the start position)
+(to repeat the animation indefinite use repeatCount="indefinite")
+<svg width="1000" height="250">
+    <rect width="150" height="150" fill="orange">
+        <animate attributeName="x" from="0" to="300"
+      dur="3s" fill="freeze" repeatCount="2"/> 
+    </rect>
+</svg>
+
+PATHS: (like virtual pen)
+M: moveto (start at)
+L: lineto
+H: horizontal lineto
+V: vertical lineto
+C: curveto
+S: smooth curveto
+Q: quadratic Bézier curve
+T: smooth quadratic Bézier curveto
+A: elliptical Arc
+Z: closepath
+
+<svg width="500" height="500">
+<path d="M 0 0 L200 200 L200 0 Z" style="stroke:#000;  fill:none;" />
+</svg>
+
+
+
+
+

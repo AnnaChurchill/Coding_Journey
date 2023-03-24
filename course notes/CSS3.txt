@@ -1,0 +1,142 @@
+CSS3
+
+Prefixes
+Some things only work for certain browsers thus we can specify things to work in those browsers.
+the prefix for chrome and safari is -webkit. For example border radius is supported in these (as well as mozilla), so we can use it like:
+{-webkit-border-radius: 24px;} (border radius rounds the corners of a border)
+options: mozilla firefox: -moz-
+	safari: -webkit-
+	chrome: -webkit-
+	opera: -o-
+	internet explorer: -ms
+
+Colours:
+As well as names, hex and RGB colours, CSS3 supports two other forms:
+RGBA colours: an extension of rgb, rgba(red, breen, blue, alpha) where alpha is transparency
+	alpha is between 0.0 (fully transparent) and 1.0 (fully opaque)
+HSL( Hue, Saturation, Lightness): 
+	hue is degree on colour wheel (0-360) [0(or 360) is red, 120 is green, 240 is blue]
+	saturation is percentage value: 100% is the full colour
+	lightness is also percentage: 0% is black and 100% is white
+
+
+
+Shapes of elements:
+{border-radius: 20px}; give element rounded corners
+	alternative: {border-radius: 0 0 20% 20px;} corners in order: top-left, top-right, bottom-right, bottom-left
+	to creat a CIRCLE, border radius should be half the width and height
+{box-shadow: 10px 10px green;} input horizontal offset, vertical offset, colour
+	creates a shodow of the box
+	alternative: {box-shadow: 10px 10px 5px 5px green;}where third and fourth inputs are blur and spread
+	can also use negative numbers (except with blur)
+Can create an inner shadow by using "inset": {box-shadow: inset 10px 10px 5px green}
+	you can create both inside and outside shadows by separating each shadow with a comma
+	when doing this with multiple overlapping shadows, the first will be on top, the last on the bottom etc.
+
+
+Pseudo Classes:
+begin with a ":" and specify which child element is being refered to (most common are :first-child and :last-child)
+e.g.
+<div id="parent">
+   <p>First paragraph</p>
+   <p>Second paragraph</p>
+   <p>Third paragraph</p>
+   <p>Fourth paragraph</p>
+</div>
+
+#parent p:first-child {
+    color: green;
+    text-decoration: underline;
+}
+
+
+Pseudo Elements: (there are 5, each starting with "::"):
+::first-line
+::first-letter
+::selection - specifies attributes of portion selected by the user
+::before - can add something before section (e.g. an image)
+::after - can add something after a section
+	e.g. ::before { content: ____ }
+
+
+Word Wrap:
+{word-wrap: break-word;} specifies is long words can be broken into multiple lines if longer than container (options: break-word and normal)
+
+@font-face
+Allows custom fonts to be loaded onto webpage.
+Internet Explorer requires Embedded OpenType fonts (eot)
+Firefox, Safari, Chrome and Opera support True Type Fonts (ttf) and Open Type Fonts (otf)
+e.g.
+@font-face { 
+  font-family: Delicious; 
+  font-weight: bold; 
+  src: url('Delicious-Bold.otf'); 
+}
+h1{
+   font-family: Delicious, sans-serif; 
+}
+
+
+
+Gradients and Backgrounds: (add prefixes)
+{background: -moz-linear-gradient(Blue, Black);} creates gradient blue to black from top to bottom (can use many colours not just 2)
+	can specify stop positions: {background: -moz-linear-gradient(blue 20%, yellow 30px, green 85%)
+	can specify direction {background: -moz-linear-gradient(left, Blue, Black);}  will go left to right
+				{background: -moz-linear-gradient(bottom, Blue, Black);}  will go bottom to top
+				{background: -moz-linear-gradient(bottom left, Blue, Black);}  diagonal
+				{background: -moz-linear-gradient(100deg, Blue, Black);}  0deg is left to right, 90deg is bottom to top
+{background: -moz-repeating-linear-gradient(Blue, Black, 20px);} gradient size of 20px then repeats
+{background: -moz-radial-gradient(position, shape or size, color-stops);
+	position: top, bottom, 50% 50% (default), 0% 0% etc.
+	shape: ellipse (to fit background dimensions)(default), circle
+	color-stops: (defines colour combination) can use measurements for stop positions also if desired
+{background-size: 100px 100px} (width height) can be lengths or percentages or 'contain' [image fits container, will grow and shrink proportionally] or 'cover' [fits container, image cropped if ratio changed]
+{background-clip: border-box} specifies if background image (or colour) goes to border, padding or just content (options: border-box, padding-box, content-box}
+Multiple backgrounds:
+{background-image: url("css_logo.png"), url("better-code.jpg");
+	background-position: right bottom, left top;
+	background-repeat: no-repeat;
+	} the first one (css_logo) will be on top of the second one (on z axis). OR
+{background: url("css_logo.png") right top no-repeat, url("better-code.jpg") left top no-repeat;}
+{opacity: 0.5} must be between 0.0(fully transparent) and 1.0 (fully opaque) [to have this work in all versions of Internet Explorer also use {filter: alpha(opacity=50);} (range between 0-100)]
+
+
+Transitions and Transforms
+{transition: <property> <duration> <timing-function> <delay>}
+	property - specifies property to be transitioned (could be background-color, width, heigth, opacity and more)
+	duration - duration over which transition occurs
+	timing-function - specifies how pace of transition changes over duration [e.g. ease (default)(starts slowly then accelerates), ease-in (starts slowly, accelerates, stops abrubtly), ease-out (starts quickly, decelerates to stop), ease-in-out (similar to ease but more subtle acceleration/deceleration), linear (constant speed throughout), cubic-bezier(0,0,0.5,0.5) (changes speed according to numbers. use numbers 0-1)]
+	delay - specifies deal for the transition effect (in secs)
+	can be used with :hover (for example) to make something change slowly when you hover over it (like a menu bar)
+{transform: rotate(10deg)} rotates element clockwise. can use negative values.
+{transform-origin: 50% 50%} allows to change the position of transformed elements (can use percentages, numbers and words like "top left". default is center)
+{transform: translate(100px, 50px)} (x-axis and y-axis)
+{transform: skew(30deg)} skews element along x-axis and y-axis by given angle (default is x-axis ).
+{tranform: scale(1.5, 1.5)} increases or decreases size of element. (1 is original size, 2 is twice the size etc.)
+multiple transforms: {transform: rotate(10deg) scale(2)}
+
+Animations
+@keyframes holds the styles that the element will have at certain times. Example:
+_________________________________
+div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: colorchange;
+    animation-duration: 1s;
+}
+@keyframes colorchange {
+    0% {background-color: red; }
+    50% {background-color: green; }
+    100% {background-color: blue; }
+}
+__________________________________
+Animation properties:
+{animation-name: colorchange}
+{animation-duration: 1s}
+{animation-timing-function: ease} (ease-in, linear, etc.)
+{animation-delay: 2s}
+{animation-iteration-count: 5} (number of times animation repeats) ('infinite' will make repeat forever)
+{animation-direction: reverse} indicates how keyframe should be applied (normal [0%-100%], reverse [100%-0%], alternate [do forward then backward then forward etc.], alternate-reverse [backward then forward etc.])
+the above can also be written as:
+{animation: colorchange 1s ease 2s 5 reverse;} (this is the order it needs to be in)

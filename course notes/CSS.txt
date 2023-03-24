@@ -1,0 +1,227 @@
+CSS - Cascading Style Sheets
+
+
+Comment:
+/* Comment goes here */
+
+ __________________
+| WORKING WITH TEXT |
+| __________________|
+
+Inline styling:
+<p style="color:white; background-color:gray;">
+    This is an example of inline styling. 
+</p>
+
+Embedded/Internal CSS: (In head. May be used if one page has a unique style) (in this example each paragraph has a grey background and white text)
+<html>
+   <head>
+      <style>
+      p {
+         color:white;
+         background-color:gray;
+      }
+      </style>
+   </head>
+   <body>
+      <p>This is my first paragraph. </p>
+      <p>This is my second paragraph. </p>
+   </body>
+</html>
+
+External CSS: (all styling rules are contained in external file. File is referenced using "link")
+<head>
+   <link rel="stylesheet" href="example.css">
+</head>
+<body>
+   <p>This is my first paragraph.</p>
+   <p>This is my second paragraph. </p>
+   <p>This is my third paragraph. </p>
+</body>
+
+Syntax:  selector { property: value; .....(repeat for multiple)}
+e.g. h1 { color: orange;}
+selector is HTML element you want to style
+("colour" is text colour)
+
+ID selector: (allows you to select an element rather than a type)
+<div id="intro">
+   <p> This paragraph is in the intro section.</p>
+</div>
+<p> This paragraph is not in the intro section.</p>
+--------------
+ #intro { color: orange;}
+
+Class selector: (selects some chosen elements)
+<div>
+   <p class="first">This is a paragraph</p>
+   <p> This is the second paragraph. </p>
+</div>
+<p class="first"> This is not in the intro section</p>
+<p> The second paragraph is not in the intro section. </p>
+-------------
+.first {font-size: 200%;}
+
+Descendent Selectors: (to select elements that are descendants of another element)
+(In this example, on emphasised elemements in first will be targetted)
+<div id="intro">
+   <p class="first">This is a <em> paragraph.</em></p>
+   <p> This is the second paragraph. </p>
+</div>
+<p class="first"> This is not in the intro section.</p>
+<p> The second paragraph is not in the intro section. </p>
+-------------
+#intro .first em {
+    color: pink; 
+    background-color:gray;
+}
+
+
+Fonts (Specify a font-family. The first font will be used if available, the second if not, etc. If none are available it will use a generic sans-serif.
+body {
+   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+Font Sizes (can be descriptive, or in px or em. em = pixels/16)  e.g.
+p.small {
+    font-size: 5px;
+}
+p.medium {
+    font-size: medium;
+}
+p.large {
+    font-size: 1.25em;
+}
+p.xlarge {
+    font-size: x-large;
+}
+
+Font Style:
+{font-style: italic;}
+options: italic, oblique (similar to italic), normal
+{font-weight: lighter;}
+options: lighter, bold, bolder, by number range from 100-900 (400 is normal, 700 is bold)
+{font-variant: normal;}
+options: normal, small-caps, inherit
+{color: green;}
+options: words (green, red etc.), hexidecimals (e.g. #0000FF), rgb (e.g. rgb(255,0,0))
+{text-align: left;}
+options: left, right, center, justify (fill whole line)
+{vertical-align: top;}
+options: top, middle, bottom, baseline(normal in line), sub (sub text), super, _%, _px (positive or negative for up and down) 
+{text-decoration: underline;}
+options: none, inherit (inherits property from parent), overline (line on top), underline, line-through, blink (makes text blink, may not work on some browsers)
+{text-indent: 10px;} (space before first line of text begins)
+options: measurements (px,pt,cm,em,etc.), __%, inherit. (values can be negative)
+{text-shadow: 5px 2px 4px grey;} (four values: x-coordinate, y-coordinate, blur-radius, colour)
+options: x and y coordinates: px, cm, mm, pc, etc. (can be negative also)
+	can have multiple shadows separated by a comma, with CSS3 first shadow will appear on top
+{text-transform: capitalize;}
+options: capitalize(each word start with capital), uppercase, lowercase, none
+{letter-spacing: 4px;}
+options: normal, _px, cm, etc. (negative values can also be used), inherit
+{word-spacing: 30px;}
+options: normal, measurements (can be negative), inherit
+{white-space: nowrap;}
+options: normal, inherit, nowrap (text on same line until <br> and all sequences of whitespace become single whitespace)
+	pre (whitespace and linebreaks kept but not adjusted with page size),
+	pre-line (extra whitespace deleted, linebreaks change with page adjustment)
+	pre-wrap (like pre but lines adjusted with page size)
+
+
+BOX MODEL:
+margin > border > padding > content
+properties order: top, right, bottom, left
+width of box = width + padding left + padding right + borders(left and right) + margins (left and right)
+width is width of content
+
+borders and backgrounds:
+{border: 5px solid green;} (width style colour) alternatively {border-style: solid; border-width: 5px; border-color: green}
+	style options: none, solid, botted, dashed, double, groove, ridge, inset, outset, hiddne
+	can have on just one side using border-top etc.
+	color can be transparent
+{width: 100px;} width and height of content+padding+border
+{height: 100px;} can also use percentages
+{min-width: 100px;} set so can change window size but box not change past parameters
+	also can do min-height, max-width and max-height
+{background-color: blue;} background color covers content and padding (can use name, rgb or hex)
+{background-image: url("___.png");} (can be paired with background colour or another image (if another image do comma after url and add another url) if image isn't square or has see through bits) (can use both relative and absolute paths)
+	background image is placed top left and repeated horizontally and vertically
+{background-repeat: repeat-x;} specifies how is repeated
+	options: repeat-x, repeat-y, no-repeat, inherit
+{background-attachment: fixed;} how background acts as you scroll
+	options: fixed (background won't move with content), scroll (will move with content), inherit
+
+lists:
+{list-style-type: circle;}
+	options: (unordered): circle, square, etc.
+		(ordered): lower-alpha etc.
+{list-style-image: url("__.png");} use image as dot point
+{list-style-position: inside;} (outside is default)
+alternatively: {list-style: square outside none};
+
+tables:
+{border-collapse: separate;} determines if boerders of cells are separate or shared
+{border-spacing: 20px 40px;} horizontal then vertical space between cells
+{caption-side: top;} where caption of table is (bottom or top)
+{empty-cells: show;} whether to display borders and background on enpty cells (show or hide)
+{table-layout: fixed;} width of table columns (auto or fixed) default is auto
+
+links:
+with example link <a href="__" target="_blank"}:
+a:link {_} defines style for unvisited link
+a:visited {_} defines style for visited link
+a:active {_} link is active once you click on it
+a:hover {_} when mouse hovers over it
+( When setting the style for several link states, there are some order rules:
+- a:hover MUST come after a:link and a:visited
+- a:active MUST come after a:hover )
+links are underlined by default by browsers. Use {text-decoration: none;} to remove underline
+
+mouse cursor:
+{cursor: help;} change cursor in section (see image cursor types for types)
+
+
+
+positioning and layout:
+{display: block;}
+options: block (takes up fullest width available, forces line breaks)
+	inline (takes up width that is necessary, does not force line breaks)
+	none (hides element, so takes up no space as if not there)
+	and others including flex, list-item, table, etc.
+{justify-content: space-between;} defines how browser distributes space between and around content
+{visibility: hidden;} specifies whether element is visible or hidden. Still takes up some space either way
+
+{position: static; top : 50px; left: 100px;} static is default (can use bottom and right as well)
+options: static(position according to normal flow of page) 
+	fixed(positioned relative to browser window. won't move when scrolled. can overlap with other elements and behaves like it doesn't exist)
+	relative (static but can specify a different position relative to its natural position. can overlap with elements. maintains normal flow)
+	absolute (positioned relative to first parent element (which must be static) (removed from normal flow)
+{float: left;} element is pushed to left or right and other elements wrap around it
+	options: left, right, none (use with width properties to have multiple elements aligned side by side
+	elements after float will be affected by float, to stop this use clear:
+{clear: left;} specifies where other floating elements are not allowed to be.
+	options: left, right, both, none
+{overflow: visible;} when text is too much for specified space
+	options: visible(default), hidden, scroll (adds scrollbar, horizontal and vertical), auto (scroll if necessary)
+{z-index: 3;} when elements overlap, which will be on top. Default is that elements introduced later will be on top. Can override this by z-axis.
+	Higher indexes will be placed on top.
+	z-axis only works for positioned elements (position: absolute, relative or fixed)
+
+
+{transform: rotate(45deg);} rotates obeject
+{transform: scaleX(-1);} flip object horrizontally. (use scaleY for vertically, scale3D etc.)
+other shapes: https://www.w3schools.com/howto/howto_css_shapes.asp
+
+
+
+scishow tangents
+ologies
+
+
+
+CSS battle
+flexbox froggy
+code kata
+
+
